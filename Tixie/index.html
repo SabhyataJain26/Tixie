@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tixie | Chat and Create</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<aside id="side">
+  <div class="brand"><span class="logo">✦</span><b>Tixie</b></div>
+  <button class="btn main newchat" id="newChat">＋ New chat</button>
+  <nav id="nav">
+    <button data-v="chat" class="on">💬 <span>Chat</span></button>
+    <button data-v="create">🎨 <span>Create images</span></button>
+    <button data-v="explore">🧭 <span>Explore</span></button>
+    <button data-v="favs">♥ <span>Favorites</span><i id="bFav">0</i></button>
+    <button data-v="mine">🗂️ <span>My creations</span><i id="bMine">0</i></button>
+  </nav>
+  <div id="hist"></div>
+  <div class="foot">
+    <button class="pill" id="theme">☀️ Light mode</button>
+    <p>Built with HTML, CSS and JavaScript</p>
+  </div>
+</aside>
+
+<main id="main">
+  <header class="top">
+    <button class="ib" id="burger" aria-label="Toggle menu">☰</button>
+    <h2 id="vt">Chat</h2>
+    <div class="stats"><span>🖼️ <b id="sMine">0</b> created</span><span>♥ <b id="sFav">0</b> saved</span></div>
+  </header>
+
+  <section class="view chatv" id="v-chat">
+    <div id="msgs"></div>
+    <div class="composer">
+      <div class="cbox">
+        <button class="rnd" id="imgBtn" aria-label="Make an image" title="Make an image">🖼️</button>
+        <textarea id="cin" rows="1" placeholder="Message Tixie, or type /image a red fox"></textarea>
+        <button class="rnd go" id="csend" aria-label="Send message" disabled>↑</button>
+      </div>
+      <div class="hint">Tixie is a demo: replies come from built-in rules. Start a message with /image to make art.</div>
+    </div>
+  </section>
+
+  <section class="view" id="v-create" hidden>
+    <h1>Turn words into <em>colorful</em> art</h1>
+    <p class="sub">Describe an idea, pick a style, and Tixie paints it for you.</p>
+    <div class="studio">
+      <div class="row">
+        <input id="prompt" type="text" placeholder="A fox riding a rocket..." autocomplete="off" maxlength="120">
+        <button class="btn alt" id="surprise">🎲 Surprise me</button>
+        <button class="btn main" id="go" disabled>Create ✦</button>
+      </div>
+      <div class="opts">
+        <div class="grp"><small>Style</small><div class="seg" id="styles"></div></div>
+        <div class="grp"><small>Shape</small><div class="seg" id="ratios"></div></div>
+        <div class="grp"><small>Variations</small><div class="seg" id="counts"></div></div>
+      </div>
+    </div>
+    <h3>Recent creations</h3>
+    <div class="grid" id="recent"></div>
+    <h3>Try one of these</h3>
+    <div class="grid" id="tryGrid"></div>
+  </section>
+
+  <section class="view" id="v-explore" hidden>
+    <div class="tools"><input id="search" type="search" placeholder="Search ideas (press / to focus)"><div class="seg" id="cats"></div></div>
+    <div class="grid" id="exGrid"></div>
+  </section>
+
+  <section class="view" id="v-favs" hidden>
+    <div class="grid" id="favGrid"></div>
+  </section>
+
+  <section class="view" id="v-mine" hidden>
+    <h3 style="margin-top:0"><span id="mineCount">All creations</span><button id="clearAll">Delete all</button></h3>
+    <div class="grid" id="mineGrid"></div>
+  </section>
+</main>
+
+<div id="lb"><div class="lbox">
+  <div id="big"></div>
+  <div class="info">
+    <h2 id="lbT"></h2><div class="meta" id="lbM"></div>
+    <button class="btn main" id="lbUse">✦ Use this prompt</button>
+    <button class="btn alt" id="lbDl">⬇ Download PNG</button>
+    <button class="btn alt" id="lbFav">♡ Save to favorites</button>
+    <button class="btn alt" id="lbCopy">📋 Copy prompt</button>
+    <button class="btn alt" id="lbClose">Close</button>
+  </div>
+</div></div>
+<div class="toast" id="toast"></div>
+
+<script src="script.js"></script>
+</body>
+</html>
